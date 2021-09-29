@@ -1,8 +1,16 @@
+# version of docker compose being used
 version: "3"
+# What docker containers to bring up
 services:
+  # First docker container name
   redis-server:
+    # image to use for container
     image: "redis"
+  # Second docker compose name
   node-app:
+    # build from the directory
     build: .
+    # exose port of the contaier to local machine we don't need to setup networking between same docker images
+    # but we need it for seeting up network on local machine and docker container
     ports:
-      - "5000:5000"
+      - "8000:8000"

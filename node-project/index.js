@@ -1,6 +1,6 @@
 const express = require('express');
 
-const port = 5000;
+const port = 8000;
 const app = express();
 
 app.get('/', (req, res) => {
@@ -8,5 +8,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`app started on port ${5000}`)
+    console.log(`app started on port ${port}`)
 })
