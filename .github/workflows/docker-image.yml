@@ -17,4 +17,4 @@ jobs:
     - name: Build the Docker image
       run: |
         docker build -t react-docker-learning/tests -f ./frontend/Dockerfile.dev ./frontend/
-        docker run -e CI=true react-docker-learning npm run test
+        docker run -e CI=true react-docker-learning/tests npm run test
