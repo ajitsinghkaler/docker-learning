@@ -20,7 +20,8 @@ RUN npm install
 # Run command
 CMD ["npm", "start"]
 
-# We use base image node  copy our files into docker container, install dependencies the start our node server. Now we just need to build an image from the docker container we can use docker build .
+# We use base image node  copy our files into docker container, install dependencies the start our node server. 
+# Now we just need to build an image from the docker container we can use docker build .
 
 # We can also give a name to docker container using
 docker build -t `<username>/<image name>:<version>` <path-to-folder>
