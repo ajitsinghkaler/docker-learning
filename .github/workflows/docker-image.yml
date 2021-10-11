@@ -13,8 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
     - name: Build the Docker image
+      uses: actions/checkout@v2
       run: |
         docker build -t react-docker-learning/tests -f ./frontend/Dockerfile.dev ./frontend/
         docker run -e CI=true react-docker-learning/tests npm run test
+
+    - name: Build docker image
+      run: |
+        cd ./frontend/
+        docker-compose up
