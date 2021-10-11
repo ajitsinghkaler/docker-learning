@@ -34,9 +34,7 @@ now run
 ```bash
 docker run ajitsinghkaler/node-basic-server
 ```
-This will start the server on port 5000 if you used my repo. Now we just need to connect the docker port to our local port and we have created a dev-environment from a docker image
-
-to map ports from local machine to docker-image run
+This will start the server on port 5000 if you used my repo. Now we just need to connect the docker port to our local port and we have created a dev-environment from a docker image to map ports from local machine to docker-image run
 ```bash
 docker run -p <local port to map>:<docker image port to map>  <image name/image id>
 
@@ -47,9 +45,7 @@ docker run -p 5000:5000 ajitsinghkaler/node-basic-server
 running localhost:5000 in your browser will return 
 This is the homepage
 
-Now I have been running our application in docker but I am copying our files but I don't know were so there may be some name clashes may occur because file name or directory names may already exist there
-
-to subvert this problem there is an instruction WORKDIR and I used my work dir as /usr/app
+Now I have been running our application in docker but I am copying our files but I don't know were so there may be some name clashes may occur because file name or directory names may already exist there to subvert this problem there is an instruction WORKDIR and I used my work dir as /usr/app
 
 WORKDIR /usr/app
 

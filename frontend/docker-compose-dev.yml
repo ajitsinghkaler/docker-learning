@@ -1,0 +1,28 @@
+version: '3'
+services:
+  react-app:
+    build:
+      #Content in which to build
+      context: .
+      #Docker file to be used
+      dockerfile: Dockerfile.dev
+    ports:
+      # Port mapping in docker file
+      - "3000:3000"
+    volumes:
+      # This is done because our dockerfile.dev already creates the dependencies using npm install so no need to create reference
+      - /app/node_modules
+      # create reference for all other files
+      - .:/app
+  react-tests:
+    build:
+      #Content in which to build
+      context: .
+      #Docker file to be used
+      dockerfile: Dockerfile.dev
+    volumes:
+      # This is done because our dockerfile.dev already creates the dependencies using npm install so no need to create reference
+      - /app/node_modules
+      # create reference for all other files
+      - .:/app
+    command: ["npm", "run", "test"]
