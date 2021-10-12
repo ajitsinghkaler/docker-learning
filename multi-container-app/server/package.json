@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "server package",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon"
+  },
+  "dependencies": {
+    "express": "4.16.3",
+    "pg": "8.0.3",
+    "nodemon": "1.18.3",
+    "redis": "2.8.0",
+    "cors": "2.8.4  "
+  },
+  "author": "Ajit SIngh",
+  "license": "MIT"
+}
