@@ -1,0 +1,30 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image and run tests
+      run: |
+        docker build ./multi-container-app/client --file ./multi-container-app/client/Dockerfile.dev --tag react-docker-learning/react
+        docker run -e CI=true react-docker-learning/tests npm run test        
+    - name: Build the prod Docker image
+      run: |
+        docker build -t ajitsinghkaler/multi-client ./multi-container-app/client
+        docker build -t ajitsinghkaler/multi-nginx ./multi-container-app/nginx
+        docker build -t ajitsinghkaler/multi-server ./multi-container-app/server
+        docker build -t ajitsinghkaler/multi-worker ./multi-container-app/worker
+    - name: Push to Docker Hub
+      run: |
+        echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{secrets.DOCKER_ID}} --password-stdin
+        docker push ajitsinghkaler/multi-client ajitsinghkaler/multi-nginx ajitsinghkaler/multi-server ajitsinghkaler/multi-worker
+
+        
