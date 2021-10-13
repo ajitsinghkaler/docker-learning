@@ -19,7 +19,7 @@ jobs:
     - name: Build the prod Docker image
       run: |
         docker build -t ajitsinghkaler/multi-client ./multi-container-app/client
-        docker build -t ajitsinghkaler/multi-nginx ./multi-container-app/nginx
+        docker build -t ajitsinghkaler/multi-nginx ./multi-container-app/ngnix
         docker build -t ajitsinghkaler/multi-server ./multi-container-app/server
         docker build -t ajitsinghkaler/multi-worker ./multi-container-app/worker
     - name: Push to Docker Hub
