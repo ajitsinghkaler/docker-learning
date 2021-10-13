@@ -25,6 +25,9 @@ jobs:
     - name: Push to Docker Hub
       run: |
         echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{secrets.DOCKER_ID}} --password-stdin
-        docker push ajitsinghkaler/multi-client ajitsinghkaler/multi-nginx ajitsinghkaler/multi-server ajitsinghkaler/multi-worker
+        docker push ajitsinghkaler/multi-client 
+        docker push ajitsinghkaler/multi-nginx 
+        docker push ajitsinghkaler/multi-server 
+        docker push ajitsinghkaler/multi-worker
 
         
