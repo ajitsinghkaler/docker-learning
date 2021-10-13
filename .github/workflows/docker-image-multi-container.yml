@@ -15,7 +15,7 @@ jobs:
     - name: Build the Docker image and run tests
       run: |
         docker build ./multi-container-app/client --file ./multi-container-app/client/Dockerfile.dev --tag react-docker-learning/react
-        docker run -e CI=true react-docker-learning/tests npm run test        
+        docker run -e CI=true react-docker-learning/react npm run test        
     - name: Build the prod Docker image
       run: |
         docker build -t ajitsinghkaler/multi-client ./multi-container-app/client
